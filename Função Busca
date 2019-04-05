@@ -1,0 +1,61 @@
+
+#include <iostream>
+#include <locale.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+void sequencial (int *v )
+{
+	int i,pesq;
+	bool acha;
+	
+	printf("Escreva o numero que vc quer buscar: ");
+	scanf("%d", &pesq);
+	i=0;
+	
+	acha=false;
+	while(i<10 && acha == false)
+	{
+		if(pesq == v[i])
+			acha=true;
+		else
+		i++;
+	}
+	
+	if(acha==true)
+		printf("O numero foi achado na posição: %d",i+1);
+	else
+	printf("O numero não foi achado !!!!");
+		
+}
+
+void  binaria (int *v)
+{
+	int i, pesq, comeco, final, meio;
+	bool acha;
+	
+	printf("Escreva o numero que vc quer buscar: ");
+	scanf("%d", &pesq);
+	
+	comeco=0;
+	final=9;
+	acha=false;
+	
+	while(comeco <= final && acha==false)
+	{
+		meio=(comeco + final) / 2;
+		
+		if(pesq == v[meio])
+			acha=true;
+		else
+			if(pesq < v[meio])
+				final=meio-1;
+			else
+				comeco=meio+1;
+	}
+	
+	if(acha=true)
+		printf("A pesquisa foi achada na posição: %d",meio+1);
+	else
+		printf("A pesquisa não foi achada !!!!!");
+}
